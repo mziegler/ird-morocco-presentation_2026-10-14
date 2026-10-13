@@ -1,0 +1,338 @@
+Todo: 
+
+
+- rewrite techno-optimism thing to be shorter
+
+
+
+----------------------------------------------------------------------------
+-------- START
+
+
+
+THANKS
+
+- for the introduction
+- for joining
+
+
+So, I'm going to present some slides on "Designing Equitable Ocean Technology,"
+
+
+
+So let's start with: what is ocean technology, and why is this important to talk about right now?
+
+
+
+
+
+
+---------------------------------------------------------------------------
+---------------------------  ocean technology slide
+
+
+A variety of new emerging technologies are starting to transform ocean governance 
+
+
+1. Ocean observation systems 
+-- bring together different technologies
+------- sensors, 
+------- tracking devices
+------- and satellite remote sensing 
+-- to monitor changing environmental conditions
+
+
+2. Vessel monitoring systems 
+-- for governments to track fishing boats
+
+
+3. Onboard video surveillance 
+-- on fishing boats, increasingly using AI 
+
+
+4. Lots of different mobile apps for fishers 
+- for things like collecting data for compliance and getting environmental certifications
+
+5. Increasingly complex and computationally intense models for fisheries management 
+
+6. Technology for supply chain traceability 
+
+
+
+
+-----------------------------------------------------------
+--- internet access slide
+
+But we know that the spread of computing technology hasn't been fair to everyone.
+
+For example, internet access and device ownership haven't been fairly distributed. This map shows how broadband internet is much more easily available in some parts of the world than others, for example.
+
+We also saw this during the covid-19 pandemic, when some people struggled with online education much more than others, because they didn't have reliable internet at home.
+
+
+
+-------------------------------------------------------------
+-- AI bias slide 
+
+Another well-established problem is discriminatory biases in AI models. 
+
+The example on this book cover on the left illustrates how racism and misogyny are embedded in AI language models, which they learn from being trained on text from the internet.
+
+We see similar problems in visual models. For example in one famous case, the passport application website for New Zealand was rejecting photos of Asian people because it thought their eyes were closed.
+
+In this other example, researchers measured that Amazon's facial recognition product guessed the genders less accurately for black and brown women, tending to erroniously label them as men.
+
+AI model biases are starting to have more real-world impacts on people as they find their way into real products and applications that we interact with. For example, there have been cases of wrongful arrests because of errors in facial recognition.
+
+
+--------------------------------------------------------
+-- surveilance slide 
+
+Another example of technological inequities, marginalized groups are disproportinately subjected to electronic surveillance, both online and offline, and often along lines of race, gender, and nationality.
+
+Survailance systems are increasingly incorporating AI, too.
+
+
+
+
+
+-------------------------------------------------------
+-- equity triangle
+
+So given all these problems, how should we make sure that ocean technology is fair to everyone?
+
+We're taking the perspective that for ocean technology to be equitable, it must be anti-inequity. 
+
+This intillectual foundation is based on Ibran X Kendi's work on antiracism. If you want to learn more about ocean equity, you can check out the Learning Forum on the Ocean Nexus Website.
+
+
+-------------------------------------------------------------
+-- outline slide 
+
+
+So, here are some important questions to consider for designing equitable ocean technology. 
+
+1. In an ocean technology project, who has decision-making power?
+
+2. Who is excluded? Either by technology access barriers, or by design factors.
+
+3. Who benefits from model biases? This becoming more important with the rise of AI.
+
+4. Who takes on burdens and risks? In an environmental technology project, these can be anything from extra work for some stakeholders, expenses, security and privacy risks, or reorganizing their institutions around the technology.
+
+5. Who benefits from techno-optimism? 
+
+What do I mean by this?
+
+Technology is not the solution to every environmental problem, but new technologies tend to bring a lot of hype, excitement, and confusion. 
+
+But sometimes, technology hype is used by powerful actors for green washing, or distracting attention away from issues, or avoiding regulations.
+
+For example, a couple years ago there was a lot of hype about blockchain <b>bringing unprecedented traceability to fishing supply chains.</b> But years later, we see that blockchain hasn't really delivered on these promises and its impact has been pretty minimal. So who benefitted from this?
+
+That's just one example of an equity problem stemming from techno-optimism.
+
+
+Importantly, I'm not saying that ocean technology is bad or that we shouldn't do it.
+- I'm saying that these are some conversations that we need to start having, in order to do it right.
+
+- And this list is not exhaustive.
+
+
+**TALK TOO LONG ON THIS SLIDE
+
+FRAGMENT
+
+For the rest of this presentation, I'm going to go into more detail and give some examples on three of these points; but unfortunately don't have time for all of them.
+
+------------------------------------------- first signpost slide 
+
+So first, let's talk about decision-making power in ocean technology projects.
+
+
+------------------------------------------ model slide
+
+On decision-making power, let's go into the example of modeling for fisheries management processes. 
+
+Really complex and computationally-intensive models are becoming more and more common in different oceanic menagement processes. This slide has a couple diagrams just to show how complex they are. 
+
+More and more of these models require a lot of computational power. It's common for a model to take something like 2 weeks to run on heavy expensive cloud computing infrastructure.
+
+
+
+------------------------------------------- model problem slide
+
+
+So what is the equity issue with modeling?
+
+These ocean management models tend to get used in highly political and contested negotiation processes. 
+- And the ever-increasing complexity of these models makes it harder for smaller, less-powerful stakeholders to participate. 
+
+This is important because the models take a certain point of view: what is modeled and why? Some things are prioritized, other things left out. 
+- These choices can be really political.
+- When the models become so complicated, it has the effect of squeezing out less powerful stakeholders who have less technical capacity for modeling.
+
+For some more depth, I'd like to refer you to Angela Abolhassani's work, an Ocean Nexus fellow, on how management procedures built on modeling frameworks can obscure these power imbalances.
+
+
+There are a variety of "participatory modeling processes" that try to bridge this gap, but in practice they often fall short because the more powerful actors still keep control of the whole modelling process.
+
+So, what do we do about this?
+
+- There are some ways we can partially address this problem with technology changes, like using simpler models to lower the barrier to participation, or by building better interfaces with more interactivity.
+
+--------------------------------------------- modeling decision-making-power slide
+
+
+
+- However, technology changes alone are not enough to fix the core problem of who has the decision-making power.
+
+Towards this point, I just want to flash you this diagram from Pedro Gonzalez-Espinosa's recent publication on equitable use of modelling in coral bleaching management, and refer you to that paper for a more detailed discussion of equity and models in management.
+
+
+
+--------------------------------------------- signpost slide 
+
+So now let's move to our next consideration for designing equitable ocean technologies: Who is excluded?
+
+There are a few different ways that relying on technology can exclude some people from an initiative.
+
+
+----------------------------------------------- Pescadata slide
+
+To talk about one of them, we'll use the example of PescaData, a mobile app for fishing cooperatives to manage data to get environmental certifications, among other features like connecting to other fishers.
+- There are many other ishing mobile app projects, so this gives us a case study.
+
+A key goal of PescaData is to provide services to small and underserved fishing cooperatives.
+
+However somewhat paradoxically, serving the most underserved fishing cooperatives is hard to do with a mobile app because these most-marginalized fishers often have the biggest barriers for using technology.
+
+For example, many of the fishers had difficulties using the app, stemming from 
+- mixed formal education levels
+- and literacy barriers.
+- These barriers to using the app tended to fall along generational lines,
+- as well as gender.
+- Additionally, a access challenge for these fishing mobile app projects is that there just is not good cellular connectivity at sea.
+
+More details on this work will be available soon in a forthcoming publication from anthropoligist Claudia Delgado Ramírez.
+
+
+So, what can you do about these technology access barriers?
+- One is to center the most marginalized users in your design process. When you design specifically for the people who will have the most trouble with your app, then your other users tend to also benefit.
+
+- Another is to use diverse communication channels; expect that some people will want to use your app and others won't, so you can use a multi-pronged strategy to meet people where they are.
+
+- In some circumstances, it can help to invest in training for an app.
+
+
+
+-------------------------------------------------------------
+- online interactions slide
+
+Another example I want to quickly point out is exclusion from online social spaces.
+
+In Claudia's work on PescaData and fishing cooperatives, she found that lots of fishers had lively Facebook and Whatsapp groups, but they were largely gendered for only men or only women.
+
+I also have a paper coming out soon where I interviewed staff of environmental organizations about community engagement, and they identified social stigmas as one of the main barriers. For example in some organizations where there were mixed languages, non-English speakers stopped participating in group chats because they felt excluded.
+
+Sometimes these problems are addressable with careful design and moderation, but sometimes they're not.
+
+This is just another example of how relying on technology can sometimes unintentionally exclude people from environmental initiatives.
+
+----------------------------------------------------------
+- signpost slide #3
+
+
+Ok so now let's move onto the last topic for today, AI model biases. This is going to become really important soon, as we start to see more and more uses of AI in ocean governance.
+
+There are a lot of different types of AI that all have different, but related problems.
+
+
+------------------------------------- GPT store slide
+
+So to introduce the problem, I want to start with the example of AI language models like ChatGPT.
+
+What does ChatGPT have to do with ocean governance, you might ask?
+
+It turns out that policymakers at the UN are using ChatGPT for all kinds of things already, like drafting statements for things and doing background research.
+
+There are already commercial products on the market today that use AI language models for different types of policy analysis.
+
+To give an example, this screenshot is from OpanAI's "GPT Store," kind of like an app store for different custom versions of ChatGPT. A couple days ago I did a search for "environmental policy," and you can see that there are already all these different AI agents specialized for talking about environmental policy.
+
+The tech industry is investing really heavily into AI Language models, and we expect to see generative AI coming into more and more parts of the policymaking process. It will probably change the way policymakers do some of their day-to-day work, similarly to how the Internet or how word processing software changed the work of policymaking.
+
+
+----------------------------------------------------
+GPT bias slide 
+
+However, it's easy to see how this might cause some problems. AI Language Models have biases.
+
+For example, if we ask ChatGPT "Does the USA violate human rights?"
+- It replies: "The question of whether the United States violates human rights is complex and subjective" and then it goes to give a noncomittal answer about how "perspectives on human rights can vary," blah blah.
+
+
+However, if we ask ChatGPT whether Thailand violates human rights,
+- It's quick to answer that yes, "Thailand has faced scrutiny and criticism regarding human rights issues" and goes on to list all these bad things that Thailand has done.
+
+So we can see that GPT has biases that can become problematic if it's being used in international policy.
+
+----------------------------------------------------------- BBNJ chatbot slide 
+
+
+To dig into this further, we made a chatbot about the UN Biodiversity Beyond National Jurisdiction Agreement and tested it out to examine AI Language Models' strengths, weaknesses, and equity psoblems for use in marine policy. You can find the preprint on archive; here's the link. 
+
+In the paper, we examine ways that AI language models can help with some of the specific tedious parts of policy work, especially for smaller governments.
+
+Of course though, we have some big concerns. In the paper we elaborate different causes of errors and biases in our BBNJ Chatbot, including 
+- biases in GPT itself, which it learned from being trained on biased text from the Internet, newspapers, and books;
+- biases from its connection to the BBNJ negotiation documents, which overrepresent the viewpoints of the developed countries,
+- and biases stemming from the application design.
+
+Still, we expect that generative AI is going to creep further and further into policymaking processes, and it's going to become important for people to develop more AI literacy to be able to get the most out of it while avoiding its pitfalls.
+
+So, we've developed a workshop on "ChatGPT for policymaking practicioners." We presented it once with the Ocean Voices fellows, and I am really keen to present this to more groups so please get in touch if you're interested in doing this workshop with your group. We are also finishing up a website with all the material, so keep your eye out as we launch it in the next few weeks.
+
+
+
+------------------------------------------------------ computer vision slide
+
+Let's turn our attention to another AI application, computer vision. 
+
+Computer vision is essentially when an AI program tries to understand what is going on in an image, like how social media apps automatically identify faces, for example. It essentially still works by training a model with lots of example pictures.
+
+We are right on the cusp of computer vision becoming much more widespread in ocean management, very soon. The technology pretty recently became good enough to be useful, so there are lots of different applications in early-stage development that seem to be getting good results.
+
+For example, there are projects using computer vision 
+- to identify and count fish underwater as they go into a net
+- to monitor onboard fishing boats, identifying and counting all the fish that get caught or thrown overboard, often also predicting their sex and age,
+- and also lots of different applications using computer vision with sattelite images, like trying to identify the locations of fishing boats.
+
+
+The bias issues with these vision models are a little different from language models, but still related.
+- they will make errors sometimes, and the errors won't always be evenly distributed, possibly behaving unfairly to some people.
+
+- since these uses of computer vision are all so new, we will likely need a lot of research into their equity, fairness, and accountability. 
+
+Researchers are still trying to figure out methods for evaluating computer vision models, especially their equity and fairness aspects. It's pretty new territory. 
+-- This is a direction that we will be working on in the future; this will become really important soon as we see more and more computer vision in ocean governence.
+
+Fortunately there is some research in other sectors that we can build on as we figure this out, like critical technology research, algorithmic fairness, technology policy, et cetera.
+
+
+
+----------------------------------------------------------------------
+-- end slide
+
+
+So this is the end of my slides and that's all we have time for today. 
+
+Again, I'm not saying that ocean technologies are bad or that we shouldn't do them, but it's really important to have these conversations about equity. 
+
+We can learn a lot from the hard-fought lessons in other technology sectors, hopefully avoid some mistakes, and strive to design ocean technology that is fair and equitable for everyone.
+
+Now, I'll hand it over to Richard Anderson for his remarks.
+
+
+
+HAND OFF TO RICHARD

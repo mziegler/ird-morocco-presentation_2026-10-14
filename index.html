@@ -1,0 +1,1608 @@
+<!doctype html>
+
+<!-- 
+TO-DO:
+
+Priorities:
+
+- decision-making power: make a slide showing AI fishing models
+
+- add slide on capacity?
+- list other ways that people can be excluded? technology, capacity, 
+
+Need internet:
+- update marine technologies slide to be more about AI
+--- find example photos: 
+----- AI fisheries modelling
+----- ocean drone, biodiversity
+----- biodiversity standards people, automating impact assessment processes
+- find something better for GPTs slide
+- update modeling slide under "decision-making power"
+- try: "does Morocco violate human rights?" or switch to Thailand
+- update Claudia citation
+- add slide on Ibram X Kendi anti-racism?
+
+
+DONE:
+X- update title slide
+X- re-order roadmap?
+X- move algorithmic conservation planning stuff to end
+X- put in AI / marine tech example slide
+X- do something with talk outline slide? Maybe get rid of it? Refer back to other presentations?
+X- look at wording on computer vision slide
+X- review introduction
+X--- add slide about biases entering LLMs
+
+
+X- expand LLM section
+X- make better slide showing LLM applications
+X--- check for other slides
+X--- get rid of GPT store slide? replace with something?
+
+X- make better example for exclusion
+
+
+-->
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Slides: Social Equity in Conservation Technology</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/simple.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<style>
+
+			/* ocean nexus colors: 
+
+			blues dark to light
+			#0d2142
+			#6a7a8b
+			#61737d <-- unsaturated
+			#b4bcc5
+
+
+			greys
+			#666669
+			#b3ada3
+			*/
+
+			div.exampleprompt {
+				font-size:70%;
+				text-align: left;
+			}
+
+			ol.signpost-list {
+				font-size:90%;
+			}
+
+			li.signpost-chunk {
+				border: solid 0px white;
+				background-color: #e3e8ee;
+				border-radius: 10px;
+				padding: 0.5em;
+				margin-bottom: 0.5em;
+				margin-top: 0.3em;
+			}
+
+			li.signpost-chunk.fragment.current-fragment, li.signpost-chunk.active {
+				color: white;
+				background-color: #0d2142;
+			}
+
+			li.signpost-chunk.fragment.visible::marker, li.signpost-chunk.active::marker {
+				color:black;
+			}
+
+			div.exampleprompt div.prompt {
+				color:white;
+				background-color: #0d2142;
+				padding: 1em;
+				border-top-left-radius:8px;
+				border-top-right-radius:8px;
+				border: white solid 2px;
+				border-bottom:none;
+			}
+
+			div.exampleprompt div.response {
+				padding: 1em;
+				background-color:#e4e4ec;
+			}
+
+			div.exampleprompt span.hilight {
+				background-color: #eedbba
+			}
+
+			div.promptengineeringexample {
+				margin-bottom: 1em;
+				background-color: #b4bcc5;
+				padding: 0.3em;
+				font-size:70%;
+			}
+
+			span.blue {
+				color: #0f4192;
+			}
+
+			ul.spaced li, ol.spaced li {
+				margin-top: 0.5em;
+			}
+			
+			ul.dashed {
+           list-style-type: none !important;
+         }
+         ul.dashed > li {
+           text-indent: -5px;
+         }
+         ul.dashed > li:before {
+           content: "\2014\a0";
+           text-indent: -5px;
+         }
+         
+         section.takeaway-slide h3 {
+         	color: #d7d1f0 !important;
+         }
+
+		 span.number-marker {
+			background-color:#d7d1f0;
+			color: black;
+			padding: 0 0.5em;
+			border-radius:500px;
+			font-size:70%;
+		 }
+         
+         
+         table.roadmap {
+					font-size:100%;
+					border-spacing: 1px;
+					border-collapse: collapse;
+					margin-top:1em;
+				}
+				
+				table.roadmap tr td:last-child {
+					border-top-right-radius:10px;
+					border-bottom-right-radius:10px;
+					padding-right:1em;
+				}
+				
+				table.roadmap tr td:first-child {
+					border-top-left-radius:10px;
+					border-bottom-left-radius:10px;
+					padding-left:1em;
+				}
+
+			
+				table.roadmap tr.selected td, .roadmap tr td.selected {
+					color: black !important;
+					background-color: #d7d1f0;
+				}
+				
+				
+			
+				table.roadmap td {
+					/*border: solid 10px white;*/
+					border: 0;
+
+					/*background-color: #f7f3de/*#EEE*/;
+				}
+
+				table.roadmap span.signpost {
+					font-size:70%;
+					color: black !important;
+					background-color: #d7d1f0;
+					padding: 0.2em 0.45em;
+					border-radius:100px;
+					vertical-align: 5%;
+				}
+				
+				table.roadmap tr.selected span.signpost {
+					font-size:85%;
+					color: black !important;
+					background-color: #d7d1f0;
+					padding:0;
+					/*padding-left:0.25em;*/
+					border-radius:0;
+				}
+
+				table.roadmap tr td:first-child {
+					text-align:center;
+				}
+
+
+				/*body {
+					cursor:none !important;
+				}*/
+
+				
+		</style>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- <section data-background-image="img/1.png" data-background-color="#404040" data-background-size="contain"></section> -->
+
+				<section data-background-color="rgba(50,50,50,0.9)" data-state="disable-layout-slide" data-background-image="img/mangrove.jpg">
+					<!-- <img style="width:100%;height:auto" src="img/webinar-series.png"><br><br><br> -->
+					
+					<div style="background-color:rgba(50, 50, 50, 0.975); padding:1em;">
+						<h3 style="color:#d7d1f0">Fair and Equitable AI for the Oceans</h3>
+						
+						<div style="margin-top:0.2em; font-size:50%; color:e9e6e4">Matt Ziegler &nbsp;&nbsp;<small style="vertical-align:20%"> &bull; </small> &nbsp;&nbsp;October 14, 2026 </div>
+						<!-- <br><br><br> -->
+						<br>
+						<div style="vertical-align:middle">
+							<img style="width:25%; height:auto; vertical-align:middle; margin-right:2em" src="img/ocean-nexus-logo-long.png">
+							<img style="width:20%; height:auto; vertical-align:middle" src="img/allenschool-logo.png">
+						</div>
+					</div>
+
+					
+				</section>
+
+				<!-- <section data-background-image="img/one-ocean-week-graphic.png" data-background-size="contain" data-background-color="#000">
+					
+				</section>
+				 -->
+
+				<section data-background-color="#0d2142" data-background-image="img/geo-background-2.png">
+					<h3 style="margin-bottom:1em">Equitable AI for the Oceans</h3>
+					<!-- <small>This talk:</small> -->
+					<ol start="0">
+						<li class="" style="list-style-type:none; font-size:70%" data-fragment-index="0">This presentation:</li>
+						<li class="fragment">Definitions and Background</li>
+						<li class="fragment">Design Considerations</li>
+						<li class="fragment">Examples</li>
+
+					</ol>
+
+					
+				</section>
+
+				<section data-background-color="#0d2142">
+					<h3>AI Ocean Technologies</h3>
+					
+					<div style="font-size:60%">
+					<div style="width:27%;vertical-align:bottom;margin:0.5em;display:inline-block" class="fragment">
+						<img style="width:100%;height:auto;margin:0" src="img/GFW-marine-manager-screenshot.png">
+						Ocean observation systems
+					</div>
+
+					<div style="width:27%;vertical-align:bottom;margin:0.5em;display:inline-block" class="fragment">
+						<img style="width:80%;height:auto;margin:0" src="img/vms-2.jpg">
+						Vessel monitoring systems
+					</div>
+
+					<div style="width:27%;vertical-align:bottom;margin:0.5em;display:inline-block" class="fragment">
+						<img style="width:100%;height:auto;margin:0" src="img/computer-vision-onboard.jpg">
+						Onboard video surveillance
+					</div>
+					
+					<div style="width:27%;vertical-align:bottom;margin:0.5em;display:inline-block" class="fragment">
+						<img style="width:70%;height:auto;margin:0" src="img/conservation-evidence-assessment-beam.jpg"><br>
+						Conservation evidence assessment
+					</div>
+
+					<div style="width:24%;vertical-align:bottom;margin:0.5em;display:inline-block" class="fragment">
+						<img style="width:100%;height:auto;margin:0" src="img/greenfish1.webp">
+						Fisheries forecasting
+					</div>
+					
+					
+					
+					<div style="width:27%;vertical-align:bottom;margin:0.5em;display:inline-block" class="fragment">
+						<img style="width:100%;height:auto;margin:0" src="img/spyfish_fish_detection_example.png">
+						 Biodiversity monitoring
+					</div>
+					
+					
+					</div>
+					
+					<div style="font-size:40%;opacity:0.6;margin-top:0.3em">
+						Image credits: (1) Global Fishing Watch, (2) Satlink, (3) Alec P. Christie et al 2024 (4) CoBi PescaData, (5) GreenFish (6) Kalindi Fonda, Wildlife.ai
+
+					</div>
+					
+					<!--ul>
+						- Impact assessment bots
+						- Biodiversity assessment
+						- Remote sensing / fishing enforcement/detection?
+						- automating impact assessment processes
+					</ul>-->
+					<aside class="notes">
+						There are many ways that new emerging technologies are coming into this space of ocean governance.<br><br>
+
+
+1. Ocean observation systems <br>
+-- bring together different technologies<br>
+------- sensors, <br>
+------- tracking devices<br>
+------- and satellite remote sensing <br>
+-- to monitor changing environmental conditions<br><br>
+
+
+2. Vessel monitoring systems <br>
+-- for governments to track fishing boats<br><br>
+
+
+3. Onboard video surveillance <br>
+-- on fishing boats, increasingly using AI <br><br>
+
+
+4. Lots of different mobile apps for fishers <br>
+- for things like collecting data for compliance and getting environmental certifications<br><br>
+
+5. Increasingly complex and computationally intense models for fisheries management <br><br>
+
+6. Technology for supply chain traceability 
+
+					</aside>
+				</section>
+				
+
+				
+
+				
+
+
+				
+
+				<!-- <section>Equity fence slide</section> -->
+				
+
+				<section data-background-color="#000000">
+					<h3>Technology Inequities</h3>
+					<img class="stretch" src="img/global-broadband.png">
+					<aside class="notes">
+But we know that the spread of computing technology hasn't been fair to everyone.<br><br>
+
+For example, internet access and device ownership haven't been fairly distributed. This map shows how broadband internet is much more easily available in some parts of the world than others, for example.<br><br>
+
+This sort of problem is really well-known to folks here at MSRI, who have done some of the most pioneering work on ICT4D.
+
+					</aside>
+				</section>
+
+				
+
+				<section data-background-color="#404040">
+					<h4>AI Model Biases</h4>
+					<img src="img/algorithms-of-opression.jpg" style="width:33%;height:auto;display:inline-block;margin-right:1em">
+					<div style="width:40%;display:inline-block">
+						<img src="img/computer-vision-discrimination.png" style="width:100%;height:auto;display:block">
+						<img src="img/gender-classification.webp" style="width:100%;height:auto;display:block">
+						<div style="font-size:40%;opacity:0.4">Credit: Joy Buolamwini, Reuters/Richard Lee</div>
+					</div>
+					<aside class="notes">
+						Another well-established problem is discriminatory biases in AI models. <br><br>
+
+The example on this book cover on the left illustrates how racism and misogyny are embedded in AI language models,<br><br>
+
+We see similar problems in visual models. For example in one famous case, the passport application website for New Zealand was rejecting photos of East Asian people because it thought their eyes were closed.<br><br>
+
+In this other example, researchers measured that Amazon's facial recognition product guessed the genders less accurately for women of darker skin tones, tending to erroniously label them as men.<br><br>
+
+AI model biases are starting to have more real-world impacts on people as they find their way into real products and applications that we interact with. For example, there have been cases of wrongful arrests because of errors in facial recognition.
+
+					</aside>
+
+				</section>
+				
+				<section data-background-color="#000000">
+					<h4>Disproportionate Surveillance of Marginalized Groups</h4>
+
+					<div style="width:70%;display:inline-block;text-align:center;padding:0">
+						<!-- <img src="img/Three_Surveillance_cameras.jpeg" style="width:30%;display:block;margin-left:auto;"> -->
+						<img class="" style="display:inline-block;width:100%;height:auto;vertical-align:top" src="img/black-lives-matter-surveillance.webp">
+						<div style="font-size:40%;opacity:0.4">Credit: Amnesty International / Spencer Platt / Getty Images; The Guardian / Betsy Reed</div>
+					</div>
+					
+					<img style="width:22%;height:auto;display:inline-block;vertical-align:top;opacity:0.9" src="img/guardian-screenshot.png">
+					
+					<!-- <div style="font-size:40%;opacity:0.4">Credit: Amnesty International / Spencer Platt / Getty Images; The Guardian / Betsy Reed</div> -->
+					<aside class="notes">
+						Another example of technological inequities, marginalized groups are disproportinately subjected to electronic surveillance, both online and offline, and often along lines of race, gender, and nationality.<br><br>
+
+Survailance systems are increasingly incorporating AI, too.
+
+					</aside>
+				</section>
+
+
+				<section>
+					<h3>Environmental Inequities: Climate</h3>
+					<img class="stretch" src="img/Per-capita-ghg-emissions.png">
+
+					<aside class="notes">
+						Climate change is one of the most important issues affecting the ocean. Many of you have probably seen maps like this, showing greenhouse gas emissions per capita. We see that most of the warming emissions come from people in the "developed world," historically affluent countries.<br><br>
+
+						However, climate change effects everyone on earth; and it is more damaging in regions close to the equator that are already hot. <br><br>
+
+						The rich countries had their opportunity to develop largely from fossil fuels, and now we are asking the developing countries to stop developing, for this problem that was not really caused by them, but was actually caused by the rich countries. This is one example of inequity.
+					</aside>
+				</section>
+
+
+				<section>
+					<h3>Environmental Inequities: Fishing</h3>
+					<img class="stretch" src="img/fish-and-seafood-consumption-per-capita.png">
+
+					<aside class="notes">
+						Here is another example, about global fish consumption. We see a similar pattern, where fish consuption tends to be higher in countries with higher income. <br><br>
+						
+						For the problem of overfishing in the ocean, again we see this pattern where the problem is mostly caused by the developed countries, but affects people all over the world.
+					</aside>
+				</section>
+
+				<section>
+					<!-- <h4>Ocean Governance Inequities</h4> -->
+					<h3>Gendered Fisheries Labor</h3>
+					<div style="display:inline-block;width:35%">
+						<img style="width:100%;height:auto;margin:0" src="img/gender-and-oceans.jpg"><img style="width:100%;height:auto;margin:0" src="img/alaska-fish-processing.webp">
+					</div>
+					<div style="display:inline-block;width:35%;margin-left:0.5em">
+						<img style="width:100%;height:auto;margin:0" src="img/alaska-seafood-marketing-institute.png"><img style="width:100%;height:auto;margin:0" src="img/three-fishermen-philippines-rare.webp">
+					</div>
+					<div style="font-size:40%;opacity:0.4">Photo credits: Asian Development Bank; Peninsula Daily News; Alaskan Seafood Marketing Institute; RARE</div>
+
+					<aside class="notes">
+						Another example of how equity comes up in ocean governence is gendered labor.<br><br>
+
+						In many places around the world, fisheries labor is gendered, like men more often go onto deep-sea boats, and women handle the business and processing and near-shore fishing. This varies from place to place.<br><br>
+
+						But these gender roles make it so fisheries management decisions affect men and women differntly, so we need to think about gender equity. For example, policies that priotitize deep-sea or industrial fishing can be more harmful to women, if they lose access to markets or to near-shore fisheries.
+					</aside>
+				</section>
+
+				
+
+
+
+				<section>
+					<h3 style="margin-top:1em">Equity as Anti-Inequity</h3>
+					<img class=" fragment" data-fragment-index="1" src="img/ocean-equity-triangle.png" style="margin-top:-0.5em; width:70%;height:auto">
+					<!-- <h3>oceannexus.org</h3> -->
+					
+				</section>
+
+
+
+
+				
+
+<section data-background-color="#323232" class="takeaway-slide">
+	<h3>Designing Equitable AI for the Oceans</h3>
+	
+	<table class="roadmap">
+		<tr class="fragment"><td>1.</td><td>Who benefits from <b>model biases?</b></td></tr>
+		<tr class="fragment"><td>2.</td><td>Who has <b>decision-making power?</b></td></tr>
+		<tr class="fragment"><td>3.</td><td>Who is <b>excluded?</b>
+		<tr class="fragment"><td>4.</td><td>Who takes on <b>burdens and risks?</td></tr>
+		<tr class="fragment"><td>5.</td><td>Who benefits from <b>hype?</b></td></tr>
+	</table>
+	<aside class="notes">
+		So, here are some important questions to consider for designing equitable ocean technology. We are formulating those draft guidelines starting with these questions.<br><br>
+
+1. In an ocean technology project, who has decision-making power?<br><br>
+
+2. Who is excluded? Either by technology access barriers, or by design factors.<br><br>
+
+3. Who benefits from model biases? We are starting to see a lot more AI applications in ocean governance, so this is starting to become really important.<br><br>
+
+4. Who takes on burdens and risks? In an environmental technology project, these can be anything from extra work for some stakeholders, expenses, security and privacy risks, or reorganizing their institutions around the technology.<br><br>
+
+5. Who benefits from hype? What do I mean by this?<br><br>
+
+Technology is not the solution to every environmental problem, but new technologies tend to bring a lot of hype, excitement, and confusion; and the hype has the effect of greenwashing, distracting resources away from other issues, or helping avoid regulation.<br><br>
+
+
+<!-- What do I mean by this?<br><br>
+
+Technology is not the solution to every environmental problem, but new technologies tend to bring a lot of hype, excitement, and confusion. <br><br>
+
+But sometimes, technology hype is used by powerful actors for green washing, or distracting attention away from issues, or avoiding regulations.<br><br>
+
+For example, a couple years ago there was a lot of hype about blockchain <b>bringing unprecedented traceability to fishing supply chains.</b> But years later, we see that blockchain hasn't really delivered on these promises and its impact has been pretty minimal. So who benefitted from this?<br><br>
+
+That's just one example of an equity problem stemming from techno-optimism.<br><br><br> -->
+
+
+Importantly, I'm not saying that ocean technology is bad or that we shouldn't do it.<br>
+- In fact, I think it's really important.<br>
+- I'm saying that these are some conversations that we need to start having, in order to do it right.<br><br>
+
+- And this list is not exhaustive.<br><br>
+
+For the rest of this presentation, I'm going to go through each of these questions and give details and examples.
+	</aside>
+</section>
+
+<!-- takeaway slide -->
+<section data-background-color="#323232" class="takeaway-slide">
+	<h3>Designing Equitable AI for the Oceans</h3>
+	
+	<table class="roadmap">
+		<tr class="selected"><td>1.</td><td>Who benefits from <b>model biases?</b></td></tr>
+		<tr><td>2.</td><td>Who has <b>decision-making power?</b></td></tr>
+		<tr><td>3.</td><td>Who is <b>excluded?</b>
+		<tr><td>4.</td><td>Who takes on <b>burdens and risks?</td></tr>
+		<tr><td>5.</td><td>Who benefits from <b>hype?</b></td></tr>
+	</table>
+	<aside class="notes">
+		Ok so now let's move onto AI model biases. This is going to become really important soon, as we start to see more and more uses of AI in ocean governance.<br><br>
+
+We are seeing different uses of AI that have different, but related problems.
+	</aside>
+
+</section>
+				<section>
+					<small style="opacity:0.7">Case Study</small>
+					<h4 style="margin-top:-0.5em; margin-bottom:0.2em">Large Language Models (LLM) for Marine Policy</h4>
+					<div style="margin-bottom:0.5em;opacity:0.7"><small>(LLMs are things like ChatGPT, Claude, Gemini, etc.)</small></div>
+					<img src="img/gpt-store-environmental-policy.png" style="border:solid 2px #CCC; width:30%; height: auto; display:inline-block; vertical-align:middle">
+					<div class="fragment" style="display:inline-block; width:60%; vertical-align:middle; font-size:80%; margin-left:1em">
+						Applications in the wild:
+						<ul>
+							<li class="fragment">Marine policy chatbots/agents/knowledgebases</li>
+							<li class="fragment">Conservation strategy/evidence evaluation</li>
+							<li class="fragment">Environmental Impact Assessments</li>
+							<li class="fragment">Public consultation processes</li>
+							<li class="fragment">Assistants for navigating government processes</li>
+							<li class="fragment">Various research / document analysis</li>
+						</ul>
+					</div>
+					
+				</section>	
+				
+
+
+				<section style="font-size:60%">
+					<img src="img/bbnj-header.png" style="width:100%;height:auto;">
+
+					<div class="fragment" style="border-radius:4px;background-color:#eee;padding:0.5em" data-fragment-index="2">
+						<!--
+							1. add animations
+							2. box around package?
+							3. spacing in BBNJ box
+							4. spacing around negotiations
+						-->
+						<div class="" style="vertical-align:top">
+							<div style="width:48%; display:inline-block;vertical-align:middle">
+								<h4>BBNJ Agreement / High Seas treaty</h4>
+
+								<ul>
+									<!-- <li>20 years negotiations</li> -->
+									<li>Adopted 2023</li>
+									<!-- <li>Consensus process</li> -->
+									<li>Enters into force Jan 17 2026</li>
+								</ul>	
+							</div>
+							<div style="width:48%;display:inline-block;vertical-align:middle;background:#fff;padding:0.5em;border-radius:4px" class="fragment" data-fragment-index="3">
+							
+								<b>Four themes / "package deal"</b>
+								<ol>
+									<li>Marine genetic resources</li>
+									<li>Area-based management tools</li>
+									<li>Environmental impact assessments</li>
+									<li>Capacity building and technology transfer</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+					<div class="fragment" data-fragment-index="1" style="margin-top:1em">20 Years of Open/Closed Negotiations<br><small>Consensus process</small></div>
+					<img class="fragment" data-fragment-index="1" src="img/bbnj-negotiations-1.svg" style="width:80%;height:auto">
+				</section>
+
+
+
+<section style="font-size:110%">
+					<!-- <h3 style="margin-top:0.5em">Example: BBNJ Question-Answering Bot</h3> -->
+					<div style="display:inline-block;width:45%; font-size:60%;vertical-align:top;text-align:left;margin-top:0.4em;">
+						Ziegler, Lothian, O'Neill, Anderson, Ota. 2025. <b>AI Language Models Could Both Help and Harm Equity in Marine Policymaking.</b><br>Nature/npj Ocean Sustainability.<br><a href="https://doi.org/qb4p" target="_blank">doi:10/qb4p</a>
+							
+						<div class="fragment visible current-fragment" style="padding:0.5em;border-radius:5px;color:white;background-color:#0d2142;margin-top:1em;width:80%;text-align:center" data-fragment-index="1">
+							<ol>
+								<li>Built BBNJ ChatBot</li>
+								<li>Tested with officials in BBNJ negotiations</li>
+							</ol>
+						</div>
+
+						<ul style="font-size:100%; padding-top:1em; list-style-type: none; margin-left:0" class="">
+							
+							<li class="fragment visible" data-fragment-index="2">
+								Opportunities:<br>
+								<ul class="" style="font-size:85%">
+									<li style="margin-top:0">Capacity building</li>
+									<li style="margin-top:0">Interpreting complex policy instruments</li>
+									<li style="margin-top:0">Consultative processes</li>
+								</ul>
+							</li>
+							<li class="fragment visible" data-fragment-index="3" style="margin-top:0.4em">
+								Risks<br>
+								<ul class="" style="font-size:85%">
+									<li style="margin-top:0">Technical capacity gap</li>
+									<!-- <li style="margin-top:0">Over-reliance</li> -->
+									<li style="margin-top:0">Displacing capacity building</li>
+									<li style="margin-top:0">Biases favor developed countries</li>
+
+								</ul>
+							</li>
+						</ul>
+									
+						<!-- <div class="fragment visible current-fragment" style="padding:0.5em;border-radius:5px;color:white;background-color:#0d2142;margin-top:1em;width:80%;text-align:center" data-fragment-index="1">
+
+							<b>ChatGPT for Policymakers Workshops</b><br><small style="padding-top:0.5em;">Participants from 15 countries</small>
+						</div> -->
+
+						
+					</div>
+				
+
+					<img src="img/BBNJbot-screenshot.png" style="width:40%;height:auto;text-align:top;display:inline-block">					
+				</section>
+
+
+
+				<section>
+					<h4>Who benefits from model biases?</h4>
+					<h3>Example: Generative AI in Policymaking</h3>
+					<div class="stretch" style="font-size:60%; vertical-align:top">
+						<div class="exampleprompt fragment" data-fragment-index="1" style="width:47%; display:inline-block; vertical-align:top; margin-right:1em;">
+							<div class="prompt"><b>Q:</b> Does the USA violate human rights?</div>
+							<div class="response fragment" data-fragment-index="2"><b>ChatGPT:</b> <span class="hilight">The question of whether the United States violates human rights is complex and subjective.</span> The U.S. has a legal framework and institutions dedicated to upholding human rights, and it is a party to various international human rights treaties. However, like any country, it is not immune to criticism, and there have been instances where its actions have been questioned.<br><br>
+
+								Critics often point to issues such as racial disparities in the criminal justice system, mass incarceration, treatment of detainees at Guantanamo Bay, the use of lethal force by law enforcement, and concerns about privacy and surveillance. Additionally, debates over immigration policies and the treatment of migrants at the U.S. southern border have raised human rights concerns.<br><br>
+								
+								It's important to note that perspectives on human rights can vary, and opinions may differ on whether specific actions constitute violations. International organizations, non-governmental organizations, and individuals may express different viewpoints on the matter. Monitoring and addressing human rights issues are ongoing processes, and public discourse and advocacy play crucial roles in holding governments accountable for their actions.</div>
+						</div>
+
+						<div class="exampleprompt fragment" style="width:47%; display:inline-block; vertical-align:top" data-fragment-index="3">
+							<div class="prompt"><b>Q:</b> Does India violate human rights?</div>
+							<div class="response fragment" data-fragment-index="4">
+								<div style="margin-bottom:0.5em"><b>ChatGPT:</b> <span class="hilight">India, like many countries, has faced criticism and accusations of human rights violations,</span> particularly in areas such as:</div>
+
+								<div style="margin-bottom:0.5em"><b>1. Kashmir:</b> The region of Kashmir has been a longstanding source of tension between India and Pakistan, with allegations of human rights abuses by Indian security forces in the Indian-administered part of Kashmir.</div>
+
+								<div style="margin-bottom:0.5em"><b>2. Armed Conflicts:</b> Instances of alleged human rights abuses have been reported in areas affected by armed conflict, such as in states like Jammu and Kashmir, Chhattisgarh, and Manipur, where security forces have been accused of extrajudicial killings, torture, and arbitrary detention.</div>
+
+								<div style="margin-bottom:0.5em"><b>3. Freedom of Expression and Press Freedom:</b> Concerns have been raised about the state of freedom of expression and press freedom in India, with instances of censorship, attacks on journalists, and harassment of activists.</div>
+
+								<div style="margin-bottom:0.5em"><b>4. Discrimination and Violence Against Minorities:</b> There have been reports of discrimination and violence against religious and ethnic minorities, including Muslims, Christians, Dalits (formerly known as "untouchables"), and indigenous communities.</div>
+
+								<div style="margin-bottom:0.5em"><b>5. Women's Rights:</b> Despite legal protections, women in India still face challenges related to gender-based violence, discrimination, and access to education and healthcare.</div>
+
+								<div style="margin-bottom:0.5em">It's important to note that while these issues exist, India is also a vibrant democracy with a strong civil society, active media, and a judiciary that has sometimes acted to protect human rights. The government has taken steps to address some of these concerns, but challenges remain. The assessment of whether India violates human rights depends on the specific context and the actions of various stakeholders within the country.</div>
+
+							</div>
+						</div>
+						
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+						<!--<div class="exampleprompt fragment" style="width:47%; display:inline-block; vertical-align:top" data-fragment-index="3">
+							<div class="prompt"><b>Q:</b> Does Thailand violate human rights?</div>
+							<div class="response fragment" data-fragment-index="4"><b>ChatGPT:</b> As of my last knowledge update in January 2022, <span class="hilight">Thailand has faced scrutiny and criticism regarding human rights issues.</span> Some concerns have been raised by international organizations and human rights advocates in areas such as freedom of expression, assembly, and association, as well as treatment of certain minority groups.<br><br>
+
+								Issues have included restrictions on freedom of speech, limitations on peaceful assembly, and allegations of extrajudicial killings in the context of the government's anti-drug campaign. Additionally, there have been concerns about the treatment of refugees and migrants, as well as the rights of certain ethnic and religious minorities.<br><br>
+								
+								It's important to note that the human rights situation can change, and new developments may have occurred since my last update. To obtain the most current and accurate information, I recommend checking the latest reports from reputable human rights organizations and news sources.</div>
+							<div  class="fragment" data-fragment-index="4" style="background:white;margin-top:1em;font-size:80%;opacity:0.5">Example borrowed from Ilan Manor</div>
+						</div>-->
+					</div>
+					<aside class="notes">
+						However, it's easy to see how this might cause some problems, especially since LLMS have biases.<br><br>
+
+FRAGMENT<br><br>
+
+For example, if we ask ChatGPT "Does the USA violate human rights?"<br><br>
+
+FRAGMENT<br><br>
+- It replies: "The question of whether the United States violates human rights is complex and subjective" and then it goes to give a noncomittal answer about how "perspectives on human rights can vary," blah blah.<br><br>
+
+FRAGMENT<br><br>
+
+However, if we ask ChatGPT whether India violates human rights,<br><br>
+
+FRAGMENT<br><br>
+
+
+- It's quick to answer that yes, "India, like many countries, has faced criticism and accusations of human rights violations" and goes on to list all these bad things that India has done.<br><br>
+
+This behavior clearly is biased and problematic. The USA has many of the same human rights issues but gets a way softer answer. You can try this out for yourself; this pattern is pretty consistent.
+
+we can see that GPT has biases that can become problematic if it's being used in international policy.
+
+					</aside>
+				</section>
+				
+				
+				
+				<section style="font-size:115%">
+					<div class="stretch" style="font-size:55%; vertical-align:top">
+						<div class="exampleprompt " data-fragment-index="1" style="width:30%; display:inline-block; vertical-align:top; margin-right:1em;">
+							<div class="prompt"><b>Q:</b>Have access and benefit sharing been prioritized in the BBNJ treaty?</div>
+							<div class="response " data-fragment-index="2"><b>BBNJ Chatbot:</b> <span class="hilight"> Yes, access and benefit-sharing have been prioritized in the BBNJ treaty.</span> The final draft of the agreement establishes an access and benefit-sharing mechanism, which is composed of members elected by the Conference of the Parties. The mechanism aims to provide guidelines for benefit-sharing, ensure transparency, and facilitate a fair and equitable sharing of both monetary and non-monetary benefits. The agreement also includes provisions for monitoring and transparency, with the access and benefit-sharing committee preparing reports based on information received through the clearing-house mechanism and making it available to Parties for consideration. The Conference of the Parties can determine appropriate guidelines for the implementation of access and benefit-sharing, taking into account national capabilities and circumstances.</div>
+						</div>
+
+						<div class="exampleprompt " data-fragment-index="3" style="width:30%; display:inline-block; vertical-align:top; margin-right:1em;">
+							<div class="prompt"><b>Q: From the perspective of developing countries,</b> have access and benefit sharing been prioritized in the BBNJ treaty?</div>
+							<div class="response " data-fragment-index="4"><b>BBNJ Chatbot:</b> <span class="hilight"> Yes, access and benefit sharing have been prioritized in the BBNJ treaty, particularly for developing countries.</span> The treaty includes provisions for fair and equitable sharing of benefits arising from marine genetic resources of areas beyond national jurisdiction, and capacity building and transfer of marine technology to developing states parties, particularly the least developed countries and landlocked developing countries. The treaty also establishes a financial mechanism aimed at ensuring efficient access to funding through simplified approval procedures and enhanced readiness of support for developing states parties, taking into account their specific needs and special circumstances. The GEF has also set aside funding to support national ratification and implementation of the treaty, particularly for developing countries.</div>
+						</div>
+
+						<div class="exampleprompt " data-fragment-index="5" style="width:30%; display:inline-block; vertical-align:top;padding-top:4em; padding-left:2em">
+
+							<h2>LLM Challenges with UN Documents</h2>
+							<ul class="" style="font-size:150%">
+								<li style="margin-top:0.8em" class="fragment">Developed States produce more text</li>
+								<li style="margin-top:0.8em" class="fragment">LLMs struggle with nuances of diplomatic language: <br><i>&ldquo;repertoires of decorum&rdquo;</i></li>
+								<li style="margin-top:0.8em" class="fragment">Many disagreements not publicly documented</li>
+							</ul>
+						</div>
+
+						<!-- <div class="exampleprompt " data-fragment-index="5" style="width:30%; display:inline-block; vertical-align:top; margin-right:1em;">
+							<div class="prompt"><b>Q:</b>What were Pacific Island Developing States' suggestions for improving access and benefit sharing, and what is their reasoning? What types of financial and non-financial elements do they advocate for?</div>
+							<div class="response " data-fragment-index="6"><b>BBNJ Chatbot:</b>The Pacific Island Developing States (P-SIDS) suggested several improvements for access and benefit sharing in the final draft of the agreement. They called for a more comprehensive and ambitious access and benefit sharing regime that goes beyond conservation and sustainable use. 
+							<br>
+							In terms of financial elements, P-SIDS advocated for access to funding based on the needs of developing States Parties. They emphasized the importance of considering the needs for assistance of Parties with special requirements, including the least developed countries, landlocked developing countries, geographically disadvantaged States, small island developing States, coastal African States, archipelagic States, and developing middle-income countries. P-SIDS also called for simplified application and approval procedures to ensure efficient access to funding and enhanced readiness of support for developing States Parties.
+							<br>
+							In terms of non-financial elements, P-SIDS emphasized the importance of capacity-building and the transfer of marine technology. They urged international organizations to grant preferential treatment to developing States Parties, particularly the least developed countries, landlocked developing countries, and small island developing States. P-SIDS also highlighted the need to consider the specific needs and special circumstances of developing States Parties in the allocation of appropriate funds, technical assistance, and the utilization of specialized services for the conservation and sustainable use of marine biological diversity of areas beyond national jurisdiction.</div>
+						</div> -->
+					</div>
+				</section>
+				
+
+				<section data-background-color="white">
+					<h3 style="margin-bottom:1em">LLM Development Pipeline</h3>
+					<table style="background-color:#e4e4ec;color:black;display:inline-block;vertical-align:middle">
+						<tr>
+							<td>&darr;</td>
+							<td>Pretraining<small style="display:block">Data curation, oversampling</small></td>
+						</tr>
+						<tr>
+							<td>&darr;</td>
+							<td>Embeddings
+								<small style="display:block">Manual nudging</small>
+							</td>
+						</tr>
+						<tr>
+							<td>&darr;</td>
+							<td>Alignment / fine tuning</td>
+						</tr>
+						<tr>
+							<td>&darr;</td>
+							<td>Context<small style="display:block">Prompt engineering, knowledge base design</small></td>
+						</tr>
+						<tr>
+							<td>&darr;</td>
+							<td>Application layer
+								<small style="display:block">Output filtering, skills/plugins/API, LLM chaining</small>
+							</td>
+						</tr>
+						<tr style="background-color:white">
+							<td colspan="2" style="text-align:center"><small style="opacity:0.8">(simplified)</small></td>
+						</tr>
+					</table>
+					<div style="display:inline-block;width:40%;margin-left:1.5em;vertical-align:middle">
+						At all stages:
+						<ul style="list-style-type: none;">
+							<li style="padding-top:1em;padding-bottom:1em">...biases can enter</li>
+							<li>...biases can be <b>partially</b> corrected/controlled</li>
+						</ul><br><br><br>
+					</div>
+					<!-- Language Model Pipeline
+
+					Where do biases enter?
+					How can biases be correted?
+
+					Pretraining
+					- data curation, oversampling 
+
+					Embeddings space 
+					- Weight nudges
+
+					Alignment / fine tuning
+
+					Prompting / context
+
+					Output filtering -->
+				</section>
+				
+				
+				<section data-background-color="#0d2142">
+					<!-- <small>Computer Vision Applications</small> -->
+					<h3>What about other types of AI?</h3>
+					<div class="" style="font-size:70%; line-height:1">
+						<div style="width:30%;display:inline-block;vertical-align:top">
+							<img src="img/fish-detection-in-net.png" style="width:100%;height:auto">
+							Counting/identifying fish in a net
+							<div style="margin-top:0.7em;font-size:45%;opacity:0.5">Credit: NOAA, Katherine Wilson et. al., WFC Presentation 2024</div>
+						</div>
+						
+						<div style="width:29%;display:inline-block;vertical-align:top">
+							<img src="img/computer-vision-onboard.jpg" style="width:100%;height:auto">
+							Fishing boat onboard monitoring
+							<div style="margin-top:0.5em;font-size:45%;opacity:0.5">Credit: Satlink, Manuel Menchaca. WFC Presentation 2024</div>
+						</div>
+
+						<div style="width:31%;display:inline-block;vertical-align:top">
+							<img src="img/GFW-marine-manager-screenshot.png" style="width:100%;height:auto">
+							Predicting fishing boats from satellite images
+							<div style="margin-top:0.5em;font-size:45%;opacity:0.5">Credit: Global Fishing Watch, Press Photo 2022.</div>
+						</div>
+						
+						
+					</div>
+					<ul class="spaced dashed" style="font-size:75%;margin-top:1em">
+						
+						<li class="fragment">
+							AI models have errors and biases, unevenly distributed and compounding
+						</li>
+						<li class="fragment">
+							Technical capacity gap: more powerful actors have more AI control
+						</li>
+						<li class="fragment">
+							Governance challenges from large foundation models
+						</li>
+						<li class="fragment">
+							<b>Future work:</b> Lots more research needed on fairness and accountability
+						</li>
+						<!-- <li class="">
+							We can draw from research in critical technology, algorithmic fairness, tech policy, etc.
+						</li> -->
+						<!--
+						equity
+						- discrediting destructive narratives
+						- individual dignity
+						- protection from the law
+
+						-->
+					</ul>
+					<aside class="notes">
+We also are right on the cusp of computer vision becoming much more widespread in ocean management, very soon. There are lots of different applications in early-stage development that seem to be getting good results, and governments and NGO's are getting ready to implement them at scale.<br><br>
+
+For example, there are projects using computer vision <br>
+- to identify and count fish underwater as they go into a net<br>
+- to monitor onboard fishing boats, identifying and counting all the fish that get caught or thrown overboard, often also predicting their sex and age,<br>
+- and also lots of different applications using computer vision with sattelite images, like trying to identify the locations of fishing boats.<br><br>
+
+
+The bias issues with these vision models are a little different from language models, but still related.<br>
+- they will make errors sometimes, and the errors won't always be evenly distributed, possibly behaving unfairly to some people. I want to be cautious about these potential biases when computer vision is used for controversial management decisions, or for enforcement.<br><br>
+
+- A lot of these applications will be using foundation models fine-tuned for specific applications. Like there might be a foundation model for video enfocement on fishing boats, for exaple, and the model would be fine-tuned for a certain type of boat or a certain region. I think we need to start thinking about the governance of these foundation models so that they are fair for everyone.<br><br>
+
+- since these uses of computer vision are all so new, we will likely need a lot of research into their equity, fairness, and accountability. <br><br>
+
+<!-- Researchers are still trying to figure out methods for evaluating computer vision models, especially their equity and fairness aspects. It's pretty new territory. <br> -->
+-- This is a direction that we will be working on in the future; this will become really important soon as we see more and more computer vision in ocean governence.<br><br>
+
+<!-- Fortunately there is some research in other sectors that we can build on as we figure this out, like critical technology research, algorithmic fairness, technology policy, et cetera. -->
+
+					</aside>
+				</section>
+
+<!-- takeaway slide -->
+<section data-background-color="#323232" class="takeaway-slide">
+	<h3>Designing Equitable AI for the Oceans</h3>
+	
+	<table class="roadmap">
+		<tr><td>1.</td><td>Who benefits from <b>model biases?</b></td></tr>
+		<tr class="selected"><td>2.</td><td>Who has <b>decision-making power?</b></td></tr>
+		<tr><td>3.</td><td>Who is <b>excluded?</b>
+		<tr><td>4.</td><td>Who takes on <b>burdens and risks?</td></tr>
+		<tr><td>5.</td><td>Who benefits from <b>hype?</b></td></tr>
+	</table>
+	
+	<aside class="notes">
+		So first, let's talk about decision-making power in ocean technology projects.
+
+	</aside>
+</section>
+				
+				<section>
+					<!-- <h4>1. Who has <b>decision-making power?</b></h4> -->
+					<h3>Example: Fisheries Forecasting</h3>
+					Physics models &rarr; neural net models
+					
+					<div class="" style="width:85%;margin-right:auto;margin-left:auto">
+						<img src="img/model-1.png" class="" style="width:55%;height:auto;vertical-align:middle">
+						<img src="img/greenfish1.webp" class="" style="width:40%;height:auto;vertical-align:middle">
+						<div style="font-size:35%; text-align:left; opacity:0.8" class="vanish-with-fragment-end">
+						&bull; Madison Heller-Shipley et. al. <i>Streamlining MSE: Assessing Shortcut Methods for Expedited Science Integration.</i> World Fisheries Congress Presentation 2024
+						<br>&bull; GreenFish.is
+						</div>
+					</div>
+					
+					<!-- <ul class="dashed">
+						<li class="fragment">Complexity squeezes out less-powerful stakeholders</li>
+					</ul> -->
+					<aside class="notes">
+						To talk about decision-making power, let's go into the example of modeling for fisheries management processes. <br><br>
+
+Really complex and computationally-intensive models are becoming more and more common in different oceanic menagement processes. This slide has a couple diagrams just to show how complex they are, with all these systems of differential equations.<br><br> 
+
+More and more of these models require a lot of computational power. It's common for a model to take something like 2 weeks to run, on heavy expensive cloud computing infrastructure.
+
+					</aside>
+				</section>
+				
+				<!-- <section data-background-gradient="linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 86%, rgba(50,50,50,1) 86%, rgba(50,50,50,1) 100%)"> -->
+				<section data-background-color="#0d2142" style="font-size:85%">
+					<!-- <h4 style="background-color:black"><span class="number-marker">1.</span> Who has <b>decision-making power?</b></h4> -->
+					<h3>Example: Fisheries Modeling</h3>
+					
+					<ul class="dashed spaced" style="margin-left:3em">						
+						<li class="">Complexity squeezes out less-powerful stakeholders
+							<ul class="dashed">
+								<li style="margin-top:0">What is modeled and why?</li>
+							</ul>
+
+							<div style="width:50%;margin-left:3em">
+								<img src="img/science-management-interface.png" style="width:100%;height:auto"><br>
+								<div style="font-size:40%;opacity:0.8;line-height:1">Angela Abolhassani, Jessica Vandenberg 2024. <i>Management Procedures and the Science Management Interface in International Tuna Management</i>. Presentation at World Fisheries Congress 2024. (citing Lave 2012.)</div>
+							</div>
+						</li>
+						
+						<li class="fragment">"Participatory" modeling methods often fall short in practice
+							<ul class="dashed">
+								<li style="margin-top:0">More powerful actors still control the process</li>
+							</ul>
+						</li>
+
+						<!-- <ul class="dashed spaced"> -->
+						<li class="fragment">
+							<i>Partial</i> technology mitigations?<br>
+							<small style="padding-left:2em">Simpler models &nbsp;&nbsp;<small style="vertical-align:20%"> &bull; </small>&nbsp;&nbsp; better user interfaces &nbsp;&nbsp;<small style="vertical-align:20%"> &bull; </small>&nbsp;&nbsp; more interactivity</small>
+						</li>
+
+						<!-- <li class="fragment">Core problem: Who has decision-making power?</li> -->
+
+					</ul>
+					
+					<!-- - looking into what is monitored and why: every model is omitting some factors and focusing on some factors. Interesting to see what has been put in place. What is being monitored and why; who is benefitting from that. -->
+
+					<!-- <div style="background-color:#eee" class="fragment">Also applies to apps and things</div> -->
+					<aside class="notes">
+						So what is the equity issue with modeling?<br><br>
+
+These ocean management models tend to get used in highly political and contested negotiation processes. <br><br>
+
+For example, Tuna<br>
+--- model tuna populations in different places under different management strategies<br>
+--- decide what quotas to set for each country,<br>
+--- where to put no-fishing zones, things like that.
+These decisions have significant economic consequences for many countries.<br><br>
+
+
+
+- And the ever-increasing complexity of these models makes it harder for smaller, less-powerful stakeholders to participate. <br><br>
+
+
+This is important because the models take a certain point of view: what is modeled and why? What assumptions does the model make? Some things are prioritized, other things left out. <br>
+- These choices can be really political.<br>
+- When the models become so complicated, it has the effect of squeezing out less powerful stakeholders who have less technical capacity for modeling.<br><br>
+
+For some more depth, I'd like to refer you to Angela Abolhassani's work, an Ocean Nexus fellow, on how management procedures built on modeling frameworks can obscure these power imbalances.<br><br>
+
+
+There are a variety of "participatory modeling processes" that try to bridge this gap, but in practice they often fall short because the more powerful actors still keep control of the whole modelling process.<br><br>
+
+So, what do we do about this?<br><br>
+
+- There are some ways we can partially address this problem with technology changes, like using simpler models to lower the barrier to participation, or by building better user interfaces with more interactivity.
+
+					</aside>
+				</section>
+				
+
+
+				<section data-background-color="#d9d9d9">
+					
+					<h4>Core problem: Who has Decision-Making Power?</h4>
+
+					<img class="stretch" src="img/bleaching-modeling-equity.png">
+					<div style="font-size:40%;opacity:0.6;line-height:1;width:60%;margin-right:auto;margin-left:auto">González-Espinosa, P.C., Bossier, S., Singh, G.G. et al. Integrating equity-focused planning into coral bleaching management. npj Ocean Sustain 2, 27 (2023).</div>
+
+					<aside class="notes">
+						- However, technology changes alone are not enough to fix the core problem of who has the decision-making power.<br><br>
+
+Towards this point, I just want to flash you this diagram from my colleague Pedro Gonzalez-Espinosa's recent publication on equitable use of modelling in coral bleaching management, and refer you to that paper for a more detailed discussion of equity and models in management.
+
+					</aside>
+					
+				</section>
+
+<!-- takeaway slide -->
+<section data-background-color="#323232" class="takeaway-slide">
+	<h3>Designing Equitable AI for the Oceans</h3>
+	
+	<table class="roadmap">
+		<table class="roadmap">
+			<tr><td>1.</td><td>Who benefits from <b>model biases?</b></td></tr>
+			<tr><td>2.</td><td>Who has <b>decision-making power?</b></td></tr>
+			<tr class="selected"><td>3.</td><td>Who is <b>excluded?</b>
+			<tr><td>4.</td><td>Who takes on <b>burdens and risks?</td></tr>
+			<tr><td>5.</td><td>Who benefits from <b>hype?</b></td></tr>
+		</table>
+	<aside class="notes">
+		So now let's move to our next consideration for designing equitable ocean technologies: Who is excluded?<br><br>
+
+There are a few different ways that relying on technology can exclude some people from an initiative.
+
+	</aside>
+</section>
+
+				<section data-background-color="#0d2142">
+					<!-- <h4>2. Who is excluded?</h4> -->
+					
+
+					<div style="width:30%;display:inline-block;vertical-align:top;text-align:center">
+					<img style="width:100%;height:auto;display:inline-block;vertical-align:top" src="img/mockup-pescadata-1-1.png">
+					<img style="width:50%;height:auto" src="img/COBI-logo-nuevo-blanco.png">
+					</div>
+					<div style="width:65%;display:inline-block;vertical-align:top">
+					
+						<h4>Example: Mobile Apps for Fishers</h4>
+					
+						<ul class="dashed" style="font-size:65%">
+							<li class="fragment"><b>PescaData:</b> mobile app for small fishing cooperatives</li>
+							<li class="fragment" style="margin-top:1em">Exploring new features: AI knowledge base? AI assistant?</li>
+							<li class="fragment" style="margin-top:1em"><b>Technology access barriers:</b> 
+								<ul class="dashed">
+									<li>Mixed formal education levels</li>
+									<li>Literacy barriers</li>
+									<li>Generational differences</li>
+									<li>Gender differences</li>
+									<li>Online social exclusion</li>
+									<li>Bad connectivity at sea
+										<br><small style="padding-left:1.7em">Claudia Delgado Ramírez et. al., forthcoming</small>
+									</li>
+									
+								</ul>
+							</li>
+							<li class="fragment" style="margin-top:1em"><b>Could AI help?</b>
+								<ul class="dashed">
+									<li>User-friendly conversation could bridge access barriers</li>
+									<li>AI literacy gap: potential for misplaced trust</li>
+									<li>Center the most-marginalized users in design process</li>
+								</ul>
+							</li>
+						</ul>
+						<aside class="notes">
+							To talk about one of them, we'll use the example of PescaData, a mobile app for fishing cooperatives to manage data to get environmental certifications, among other features like connecting to other fishers.<br>
+- There are many other ishing mobile app projects, so this gives us a case study.<br><br>
+
+A key goal of PescaData is to provide services to small and underserved fishing cooperatives.<br><br>
+
+However somewhat paradoxically, serving the most underserved fishing cooperatives is hard to do with a mobile app because these most-marginalized fishers often have the biggest barriers for using technology.<br><br>
+
+For example, many of the fishers had difficulties using the app, stemming from <br>
+- mixed formal education levels<br>
+- and literacy barriers.<br>
+- These barriers to using the app tended to fall along generational lines,<br>
+- as well as gender.<br>
+- Additionally, a access challenge for these fishing mobile app projects is that there just is not good cellular connectivity at sea.<br><br>
+
+More details on this work will be available soon in a forthcoming publication that I am writing with anthropoligist Claudia Delgado Ramírez.<br><br>
+
+
+So, what can you do about these technology access barriers?<br>
+- One is to center the most marginalized users in your design process. When you design specifically for the people who will have the most trouble with your app, then your other users tend to also benefit.<br><br>
+
+- Another is to use diverse communication channels; expect that some people will want to use your app and others won't, so you can use a multi-pronged strategy to meet people where they are.<br><br>
+
+- In some circumstances, it can help to invest in training for an app.
+	
+						</aside>
+
+				</section>
+				
+				
+				
+
+
+				
+
+
+<!-- takeaway slide -->
+<section data-background-color="#323232" class="takeaway-slide">
+	<h3>Designing Equitable AI for the Oceans</h3>
+	
+	<table class="roadmap">
+		<tr><td>1.</td><td>Who benefits from <b>model biases?</b></td></tr>
+		<tr><td>2.</td><td>Who has <b>decision-making power?</b></td></tr>
+		<tr><td>3.</td><td>Who is <b>excluded?</b>
+		<tr class="selected"><td>4.</td><td>Who takes on <b>burdens and risks?</td></tr>
+		<tr><td>5.</td><td>Who benefits from <b>hype?</b></td></tr>
+	</table>
+	<aside class="notes">
+		Let's move on to our next consideration: who takes on burdens and risks?<br><br>
+		
+		These last couple ones are quick.<br><br>
+
+		By burdens, I mean that ocean technology initiatives can create extra work for some stakeholders, expenses, security and privacy risks, or reorganizing their institutions around the technology, among other things.
+
+		
+	</aside>
+
+</section>
+
+
+
+
+
+
+				<section>
+					<h4>Who takes on burdens and risks?</h4>
+					<h3>Example: Fishing Boat Surveillance</h3>
+					<img src="img/conveyor-belt-camera.png" style="width:27%;height:auto">
+					<img src="img/computer-vision-onboard.jpg" style="width:30%;height:auto">
+					<img src="img/onboard-surveillance-iobserver.png" style="width:32%;height:auto">
+					<ul class="dashed spaced" style="font-size:80%">
+						<li>Monitoring systems including AIS, VMS, camera systems</li>
+						<li class="">Need to balance fishers' privacy and security with enforcement needs
+							<!-- <ul class="dashed">
+								<li>Video surveillance can feel very invasive</li>
+								<li>Legitimate reasons to turn off AIS location broadcasts</li>
+							</ul>
+						</li> -->
+						<li class=""><i>Partial</i> technical mitigations: blurring faces with AI</li>
+					</ul>
+
+					<aside class="notes">
+						To talk about burdens, we have this example of fishing boat surveillance.<br><br>
+
+						There are several new forms of electronic monitoring that are in development for fishing vessels, like various systems tracking boats with sattelites, and camera systems. More and more governments and buyers are starting to require that fishing boats have cameras installed in certain places.<br><br>
+
+						And lots of fishers are pretty unhappy about this. This slide has some example images from these video monitoring systems, and to me this feels very invasive. It would be like having a video camera in my office all day. To me, it seems completely reasonable that fishers don't like this.<br><br>
+
+						I don't know what the solution is, but we need to take fisher's privacy concerns seriously instead of downplaying them. This is just an example of how we need to think about who takes on the burdens in these technology projects.<br><br>
+
+						Again, there are some technical approaches to partially mitigate this problem, like trying to blur faces with AI. This is not a complete solution though.<br><br>
+						
+
+					</aside>
+				</section>
+
+
+<!-- takeaway slide -->
+<section data-background-color="#323232" class="takeaway-slide">
+	<h3>Designing Equitable AI for the Oceans</h3>
+	
+	<table class="roadmap">
+		<tr><td>1.</td><td>Who benefits from <b>model biases?</b></td></tr>
+		<tr><td>2.</td><td>Who has <b>decision-making power?</b></td></tr>
+		<tr><td>3.</td><td>Who is <b>excluded?</b>
+		<tr><td>4.</td><td>Who takes on <b>burdens and risks?</td></tr>
+		<tr class="selected"><td>5.</td><td>Who benefits from <b>hype?</b></td></tr>
+	</table>
+	<aside class="notes">
+		Now we're at our last topic: who benefits from hype?<br><br>
+
+		I am still trying to figure out how to talk about this one in the context of equity. I think it's really important but it's also delicate.<br><br>
+
+
+		New technology tends to generate a lot of excitement and confusion; and it has the effect of shifting around power and resources. Technology hype can cause some issues to receive more attention than others, or take resources away from other kinds of work. Some powerful actors use it to their advantage for greenwashing, appearing more environmental than they actually are, or helping powerful actors avoid regulation. <br><br>
+
+		This happens often enough that I think it's a real problem for environmental governance.<br><br>
+		
+
+	</aside>
+
+</section>
+<section>
+					<h4>Who benefits from technology hype?</h4>
+					<h3>Example: Blockchain Traceability</h3>
+					<div>
+						<img style="width:30%;height:auto;display:inline-block" src="img/blockchain-walmart-2.png">
+						<img style="width:30%;height:auto;display:inline-block" src="img/blockchain-walmart-1.png">
+						
+						<div style="width:30%;display:inline-block">
+						<img style="width:95%;height:auto;display:inline-block" src="img/blockchain-walmart-3.png">
+						<img style="width:95%;height:auto;display:inline-block" src="img/blockchain-walmart-4.png">
+						</div>
+					</div>
+					<!-- <ul class="dashed" style="font-size:85%;margin-right:auto">
+						<li>Massive hype, huge marketing effort, exaggerated claims</li>
+						<li class="fragment">Actual impact has been very limited</li>
+						<li class="fragment">Danger of greenwashing; exaggerated appearance of accountability</li>
+					</ul> -->
+					
+					
+					<aside class="notes">
+						Here is one more example of this problem: there has been a lot of hype about blockchain being used for traceability in the fish supply chain.<br>
+						- The ideas is that: by using blockchain to trace a fish through all of the transactions from the fisher to the consumer, we can stop illegally-caught fish from entering the supply chain and being sold as legally-caught fish.<br><br>
+
+						You can find hundreds of press releases and headlines about companies claiming to "bring unprecedented transparency to their supply chain" using blockchain, and stopping illegal fishing, et cetera. I went to the World Fisheries Congress back in March, and everybody had heard of blockchain but almost nobody actually understood what it is.<br><br>
+
+						FRAGMENT<br><br>
+
+						However, we are several years into this, and the impact on fisheries has been minimal for several reasons including technical implementation problems and corporate politics, and there are still many other ways to commit fraud in the supply chain.<br><br>
+
+						<br><br>
+
+						There is a real danger here that the hype around this technology can create greenwashing and a false appearance of accountability; making it look like companies are behaving more sustainably than they actually are. This can have the effect of helping bad actors avoid regulation, potentially making the problem worse.
+					</aside>
+
+					<!--yes the technologies have some benefit, but does the hype of what they provide help the people who are getting away with bad things continue to get away with them?
+					- not every problem is fixable with bad 
+					we need to understand the benefits and limitations of the technologies, and not let them be used as a misdirection from giving people a free pass based on those benefits.-->
+				</section>
+
+				<section>
+					<h4>Who benefits from technology hype?</h4>
+					<div style="width:35%;display:inline-block;vertical-align:middle">
+						<img src="img/wasteShark-ranmarine.png" style="width:100%;height:auto">
+						<img src="img/coca-cola-ocean-cleanup.png" style="width:100%;height:auto">
+
+						<div style="font-size:40%;opacity:0.4">Photo credits: Ran Marine; The Coca Cola Company</div>
+					</div>
+					<img src="img/global-plastics-production.png" class="fragment" style="width:55%;height:auto;vertical-align:middle;margin-left:1em;">
+
+					<aside class="notes">
+						So, here are a couple examples. You might have heard of these projects building robots to clean up the plastic in the ocean. These have received a lot of attention, investment, and media coverage.<br><br>
+
+						The intention is good, but it remains to be seen whether these ocean-cleanup robots will be enough to make a meaningful difference to the problem. So far, their impact has been negligable.<br><br>
+
+						FRAGMENT<br><br>
+
+						Meanwile, plastic production is still accelerating. Last year we produced more plastic than any year before. Over 90% of plastic goes into single-use products, like packaging. This is the root problem that we need to be addressing, not just cleaning it up once it is already in the ocean.<br><br>
+
+						Reducing plastic production is really difficult though, and a solution seems far away. Politicians don't want to do it because of industry pressures.<br><br>
+
+						There is a real danger that the hype about ocean cleanup robots is taking the pressure off of us to reduce plastic production. So we think we will have a technical solution with robots to clean it up for us, so we don't have to do the hard thing.<br><br>
+
+						There is a danger that technology hype gives power to some powerful stakeholders and helps them avoid regulation; and makes it harder for other solutions to get attention.
+
+					</aside>
+				</section>
+
+				
+				
+				<section>
+					<img class="stretch" src="img/eric-shmidt-ai-climate-goals.png">
+				</section>
+				
+
+<!-- takeaway slide -->
+<section data-background-color="#323232" class="takeaway-slide">
+	<h3>Designing Equitable AI for the Oceans</h3>
+	
+	<table class="roadmap">
+		<tr><td>1.</td><td>Who benefits from <b>model biases?</b></td></tr>
+		<tr><td>2.</td><td>Who has <b>decision-making power?</b></td></tr>
+		<tr><td>3.</td><td>Who is <b>excluded?</b>
+		<tr><td>4.</td><td>Who takes on <b>burdens and risks?</td></tr>
+		<tr><td>5.</td><td>Who benefits from <b>hype?</b></td></tr>
+	</table>
+	
+	<aside class="notes">
+		So this is the end of my talk, and here are the framing questions one last time.<br><br>
+
+Again, I'm not saying that ocean technologies are bad or that we shouldn't do them, but it's really important to have these conversations to do it in an equitable and effective way. <br><br>
+
+We can learn a lot from the hard-fought lessons in other technology sectors, hopefully avoid some mistakes, and strive to design ocean technology that is fair and equitable for everyone.<br><br>
+
+
+Thank you so much!
+
+	</aside>
+</section>
+
+<section data-background-color="#323232" class="takeaway-slide">
+<h3>Thanks!</h3>
+	</section>
+
+<section>
+	Extra slides
+</section>
+
+<section data-background-image="img/marxan-1.png" data-background-size="contain" data-background-color="black">
+					<div class="stretch"></div>
+					<div style="color:black;background-color:white;border-radius:5px;margin-left:auto;margin-right:auto;width:60%;padding:0.5em;font-size:80%">Example: Algorithmic Conservation Planning</div>
+				</section>
+
+				
+
+				<section>
+					<h4>Example: Algorithmic conservation planning </h3>
+
+
+										
+
+					<img class="stretch" src="img/algorithmic-conservation-planning-mock.svg"><br>
+
+					<b>Goal:</b> maximize conservation impact for your budget.
+
+					<!-- <ol>
+						<li class="fragment">Enter data for candidate protected areas</li>
+						<li class="fragment">Choose prioritization goals</li>
+						<li class="fragment">Program calculates optimal boundaries </li>
+					</ol> -->
+				</section>
+
+				
+
+
+
+				<section data-background-color="#fff">
+					<h3>Algorithmic Conservation Planning</h3>
+					
+					<div style="font-size:60%">
+					<div style="width:27%;vertical-align:bottom;margin:0.5em;display:inline-block" class="">
+						<img style="width:100%;height:auto;margin:0" src="img/marxan-1.png">
+						Marxan
+					</div>
+
+					<div style="width:27%;vertical-align:bottom;margin:0.5em;display:inline-block" class="">
+						<img style="width:80%;height:auto;margin:0" src="img/prioritization-software/prioritizr-syncrosim.png">
+						Prioritizr
+					</div>
+
+					<div style="width:27%;vertical-align:bottom;margin:0.5em;display:inline-block" class="">
+						<img style="width:100%;height:auto;margin:0" src="img/prioritization-software/zonation.png">
+						Zonation
+					</div>
+					
+					<div style="width:27%;vertical-align:bottom;margin:0.5em;display:inline-block" class="">
+						<img style="width:80%;height:auto;margin:0" src="img/prioritization-software/c-plan.jpg"><br>
+						C-Plan
+					</div>
+
+					<div style="width:27%;vertical-align:bottom;margin:0.5em;display:inline-block" class="">
+						<img style="width:80%;height:auto;margin:0" src="img/prioritization-software/secsel.jpg">
+						SecSel
+					</div>
+					
+					
+					
+					<div style="width:27%;vertical-align:bottom;margin:0.5em;display:inline-block" class="">
+						<img style="width:100%;height:auto;margin:0" src="img/prioritization-software/consnet.jpeg">
+						ConsNet
+					</div>
+					
+					
+					</div>
+					
+					
+				</section>
+
+				<!--<section data-background-image="img/microsoft-deforestation-risk.png" data-background-size="contain" data-background-color="black">
+					<div class="stretch"></div>
+					<div style="color:black;background-color:white;border-radius:5px;margin-left:auto;margin-right:auto;width:60%;padding:0.5em">Increasingly incorporating AI, e.g. modeling disturbance risk</div>
+				</section>-->
+
+				<section data-background-image="img/Red_Frog_Beach_Bastimentos_8.jpeg">
+					<div style="background:rgba(255,255,255,0.9);border-radius:5px;display:inline-block;left:auto;right:auto;padding:1em">
+						<h4>Case Study</h4>
+						<h3>Isla Bastimentos National Marine Park</h3>
+					</div>
+
+					<!-- <img src="img/bocas-del-toro-map.png" class="stretch"> -->
+
+					<!-- Pretty tourist attraction, pretty slides 
+
+					Bocas del Toro Archipelago in Panama
+
+					Had been inhabited by Ngaabe population 
+					-- until United Fruit Company turned it into a banana plantation, brought workers from USA and Jamaica -->
+
+					<small style="font-size:30%;opacity:0.7">Photo By Dronepicr - Own work, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=48472009</small>
+
+				</section>
+
+				<section data-background-image="img/Red_Frog_Beach_Bastimentos_8.jpeg">
+					<!-- <div style="background:rgba(255,255,255,0.9);border-radius:5px">
+						<h4>Case Study</h4>
+						<h3>Isla Bastimentos National Marine Park</h3>
+					</div> -->
+
+					<img src="img/bocas-del-toro-map.png" class="stretch">
+
+					<!-- Pretty tourist attraction, pretty slides 
+
+					Bocas del Toro Archipelago in Panama
+
+					Had been inhabited by Ngaabe population 
+					-- until United Fruit Company turned it into a banana plantation, brought workers from USA and Jamaica -->
+
+					<!-- Photo By Dronepicr - Own work, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=48472009 -->
+
+				</section>
+
+				<section>
+					<div style="margin-bottom:1em">
+						<div style="width:35%;vertical-align:bottom;margin:0.0em;display:inline-block" class="">
+							<img style="width:100%;height:auto;margin:0" src="img/isla-bastimentos-map.png">
+						</div>
+
+						<div style="width:20%;vertical-align:bottom;margin:0.0em;display:inline-block;margin-right:0" class="fragment" data-fragment-index="2">
+							<img style="width:80%;height:auto;margin:0" src="img/mesoamerican-corridor-report.png">
+						</div>
+
+						<div style="width:20%;vertical-align:bottom;margin:0.0;display:inline-block;margin-left:0" class="fragment" data-fragment-index="2">
+							<img style="width:80%;height:auto;margin:0" src="img/mesoamerican-corridor-maps.png">
+						</div>
+					</div>
+					<h4 class="fragment" data-fragment-index="1">Isla Bastimentos National Marine Park</h4>
+
+					<ul style="font-size:80%">
+
+						<li class="fragment" data-fragment-index="1">Created by decree in 1988 from Panama City</li>
+						
+						<li class="fragment" data-fragment-index="2">Support from World Bank, FAO, IUCN</li>
+
+						<li class="fragment" data-fragment-index="3">Stated goals: protect a range of habitats, particularly for turtles</li>
+
+						<li class="fragment" data-fragment-index="4">Secondary goal: &ldquo;Tourism for Development&rdquo;</li>
+
+						<li class="fragment" data-fragment-index="5"><b>Local people apparently not consulted in park's design</b></li>
+					</ul>
+				</section>
+
+
+				<section data-background-image="img/zapatillas-beach.jpg" style="font-size:85%">
+					<div class="fragment" style="padding:1em; background:rgba(255,255,255,0.97); border-radius:5px">
+						<!-- <h4>Isla Bastimentos National Marine Park</h4> -->
+						<h3>Park Impacts</h3>
+
+						<ul style="font-size:80%">
+							<li class="fragment">Local people excluded from subsistence use</li>
+							<li class="fragment">Unclear whether conservation goals accomplished</li>
+							<li class="fragment">One third of Isla Bastimentos bought by American resort company</li>
+							<li class="fragment">
+								Harmful tourism impacts
+								<ul>
+									<li class="fragment">Indigenous and Afro-Antillean people largely forced off land</li>
+
+									<li class="fragment">Most tourism businesses owned by White Americans</li>
+
+									<li class="fragment">Environmental harm: coastal development, mangrove removal, freshwater depletion, coral damage from snorkeling, wildlife disturbance</li>
+								</ul>
+							</li>
+						</ul>
+
+
+						<div class="fragment" style="color:white;background-color:#0d2142;border-radius:5px; padding:0.5em; margin-top:0.8em">What if local people had more decision-making power?</div>
+					</div>
+				</section>
+
+				<section>
+					<h4>Example: Algorithmic conservation planning </h3>
+
+
+										
+
+					<img class="stretch" src="img/algorithmic-conservation-planning-mock.svg"><br>
+
+					<b>Goal:</b> maximize conservation impact for your budget.
+
+					<!-- <ol>
+						<li class="fragment">Enter data for candidate protected areas</li>
+						<li class="fragment">Choose prioritization goals</li>
+						<li class="fragment">Program calculates optimal boundaries </li>
+					</ol> -->
+				</section>
+
+				<section data-background-image="img/marxan-1.png" data-background-color="#000" data-background-opacity="0.2" data-background-size="contain" data-background-color="black">
+					<div style="color:black;background-color:white;border-radius:5px;margin-left:auto;margin-right:auto;width:80%;padding:1em">
+						<h4 style="color:black;margin-bottom:0">Algorithmic Conservation Planning</h4>
+						<h3 style="color:black">Benefits vs. Equity Concerns?</h3>
+
+						<ul>
+							<li class="fragment" style="margin-top:0.8em"><b>Benefits:</b> analysis, coordination, organization</li>
+							<li class="fragment" style="margin-top:0.8em"><b>Risk:</b> consolidating <i>decision-making power</i></li>
+							<li class="fragment" style="margin-top:0.8em"><b>Risk:</b> <i>Tokenism.</i> <small style="vertical-align:baseline">Technical fixes can help, but don't solve everything</small></li>
+							<li class="fragment" style="margin-top:0.8em"><b>Risk:</b> undermining the slow and fragile progress towards inclusive environmental governance</li>
+
+						</ul>
+
+					</div>
+				</section>
+
+				<!-- <section> -->
+<!-- 
+					- Benefits: big picture coordination, systematic consideration of evidence 
+					- Risks: progress towards more inclusive governance is fragile and slow
+
+					- technical fixes can help, but don't solve everything 
+					--- more accessible software design, interactivity, incorporating social factors
+					12:10 AM
+
+					Add an Emoji, Sticker, or GIF -->
+
+
+				<!-- </section> -->
+
+
+
+				<section data-background-image="img/geo-background-6.png" style="color:white" data-background-color="#222">
+				<h4>Discussion Question #1</li>
+					<!--<ol style="width:80%;font-size:120%;margin-top:1em">
+						<li class="fragment">What should &ldquo;equity&rdquo; mean in the context of conservation technologies?</li>
+						<li class="fragment" style="margin-top:1em">What are the <b>important factors</b> for designing equitable conservation technologies?</li>
+					</ol>-->
+					
+					<h3>What should &ldquo;equity&rdquo; mean in the context of conservation technologies?</h3>
+					
+				</section>
+
+				<section data-background-image="img/geo-background-6.png" style="color:white" data-background-color="#222">
+				<h4>Discussion Question #2</li>
+					<!--<ol style="width:80%;font-size:120%;margin-top:1em">
+						<li class="fragment">What should &ldquo;equity&rdquo; mean in the context of conservation technologies?</li>
+						<li class="fragment" style="margin-top:1em">What are the <b>important factors</b> for designing equitable conservation technologies?</li>
+					</ol>-->
+					
+					<h3>What are the <b>important factors</b> for designing equitable conservation technologies?</h3>	
+				</section>
+
+			</div>
+		</div>
+		
+		
+		
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				controls: false,
+				progress: false,
+
+				transition: 'none',
+				backgroundTransition: 'none',
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+				//view: 'scroll',
+				//scrollProgress: true,
+				
+				// slideNumber:true,
+				
+				width: 1200,
+
+				mouseWheel: true,
+
+				pdfSeparateFragments: true,
+
+				// disableLayout: true // this is only for the first slide, then gets turned off
+			});
+
+			// Reveal.on('disable-layout-slide', (event) => {
+			// 	Reveal.configure({disableLayout: true});
+			// })
+
+			// Reveal.on('reactivate-layout-slide', (event) => {
+			// 	Reveal.configure({disableLayout: false});
+			// })
+		</script>
+	</body>
+</html>
+<!-- old pages for printing PDF: 1-19,21-33,35,37- -->
+<!-- new pages for printing PDF: 1-18,20-32,34,36- -->
